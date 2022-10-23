@@ -1,7 +1,16 @@
-<div class="bg-white flex px-6 py-3 rounded mb-2 shadow justify-between items-center">
-  <div>
-    <div class="text-2xl"><%= task.name %></div>
-    <div class="text-gray-400"><%= task.duration %> minutes</div>
+<div data-controller="task" class="bg-white rounded mb-2 shadow relative">
+  <div class="bg-yellow-100 z-10 absolute top-0 bottom-0" data-task-target="progressBar" style="width:0%"></div>
+
+  <div class="z-20 relative flex justify-between items-center px-6 py-3 ">
+    <div>
+      <div class="text-2xl"><%= task.name %></div>
+      <div class="text-gray-400" data-task-target="duration" data-duration="<%=task.duration / 60.0%>"><%= task.duration %> minutes</div>
+    </div>
+    <button data-action="click->task#start"
+            class="text-lg text-slate-500 bg-slate-100 rounded-lg px-3 py-2 hover:bg-slate-800 hover:text-white"
+    >
+      Start
+    </button>
   </div>
-  <button class="text-lg text-slate-500 bg-slate-100 rounded-lg px-3 py-2 hover:bg-slate-800 hover:text-white">Start</button>
+
 </div>
