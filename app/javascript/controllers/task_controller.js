@@ -5,7 +5,6 @@ export default class extends Controller {
     static targets = [ "progressBar", "duration" ]
 
   connect() {
-    console.log('connected!')
   }
 
   start() {
@@ -13,7 +12,7 @@ export default class extends Controller {
     const durationElement = this.durationTarget;
     const duration = parseFloat(durationElement.getAttribute('data-duration'));
     const durationInSeconds = duration * 60;
-    progressBarElement.style.transition = "width " + durationInSeconds + "s";
+    progressBarElement.style.transition = "width " + durationInSeconds + "s linear";
     progressBarElement.style.width = "100%";
   }
 }
